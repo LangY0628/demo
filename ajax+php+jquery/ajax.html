@@ -1,0 +1,56 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ajax</title>
+    <script type="text/javascript" src="jquery-1.10.1.js"></script>
+    <script type="text/javascript">
+        function function1() {
+            $.get(
+                "ajaxPhp.php",
+                {name:"tom",age:11},
+                function (data) {
+                    alert(data)
+                    $(".con").html(data)
+                },
+                "text"
+
+            )
+        }
+        function function2() {
+            $.post(
+                "ajaxPhp2.php",
+                {name2:"john",age2:11},
+                function (data) {
+                    alert(data.name+data.age)
+                    $(".con2").html(data.name+data.age)
+                },
+                "json"
+
+            )
+        }
+        function function3() {
+            $.ajax({
+                url:"ajaxPhp3.php",
+                type:"post",
+                dataType:"json",
+                data:{name:"jerry",age:12},
+                success:function (data) {
+                    alert(data.name+data.age)
+                    $(".con3").html(data.name+data.age)
+                }
+                })
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input type="button" value="get" onclick="function1()">
+        <input type="button" value="post" onclick="function2()">
+        <input type="button" value="ajax" onclick="function3()">
+        <span class="con"></span>
+        <span class="con2"></span>
+        <span class="con3"></span>
+    </form>
+</body>
+</html>

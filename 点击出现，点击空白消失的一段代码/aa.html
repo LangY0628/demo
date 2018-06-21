@@ -1,0 +1,53 @@
+<!DOCTYPE html> 
+
+<html> 
+
+<head> 
+
+<meta charset="utf-8"/> 
+
+<title>test</title> 
+
+<script type="text/javascript" src="jquery-1.11.0.min.js"></script> 
+
+<script> 
+
+$(function(){ 
+
+    $('#btn').click(function(){ 
+
+        $('#box').css('display','block'); 
+
+    }); 
+
+      
+
+    $(document).on('mousedown',function(e){ 
+
+        if(!$(e.target).is($('#btn')) && !$(e.target).is($('#box')) && $(e.target).parent('#box').length === 0){ 
+
+        $('#box').css('display','none'); 
+
+        } 
+
+    }); 
+
+}); 
+
+</script> 
+
+</head> 
+
+<body> 
+
+<button id="btn">aa</button> 
+
+<div style="display:none; width:200px; height:200px; background-color:#ddd;" id="box"> 
+
+    <div>bbb</div> 
+
+</div> 
+
+</body> 
+
+</html>
